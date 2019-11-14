@@ -1,0 +1,27 @@
+<ng-template #error>
+    <div>An error occured while fetching the positions data</div>
+  </ng-template>
+  <div class="center" *ngIf="!loadingError; else error">
+    <h2>Positions</h2>
+    <p class="lead">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non odio sed
+      eros tristique bibendum.
+    </p>
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <th>Position Title</th>
+          <th>Position Description</th>
+          <th>Salary</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let position of positions">
+            <td>{{ position.PositionName }}</td>
+            <td>{{ position.PositionDescription }}</td>
+            <td>${{ position.PositionBaseSalary | number: ".2" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

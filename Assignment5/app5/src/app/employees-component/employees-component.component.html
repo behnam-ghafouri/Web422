@@ -1,0 +1,32 @@
+<ng-template #error>
+    <div>An error occured while fetching the employees data</div>
+  </ng-template>
+  <div class="center" *ngIf="!loadingError; else error">
+    <h2>Employees</h2>
+    <p class="lead">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non odio sed
+      eros tristique bibendum.
+    </p>
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <th>Full Name</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+          <th>Hire Date</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees">
+            <td>{{ employee.FirstName }} {{ employee.LastName }}</td>
+            <td>
+              {{ employee.AddressStreet }}. {{ employee.AddressState }},
+              {{ employee.AddressCity }}. {{ employee.AddressZip }}
+            </td>
+            <td>{{ employee.PhoneNum }}:{{ employee.Extension }}</td>
+            <td>{{ employee.HireDate | date: "longDate" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

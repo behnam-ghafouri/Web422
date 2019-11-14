@@ -1,0 +1,36 @@
+<header id="header">
+  <nav class="navbar navbar-inverse" role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="index.html"><i class="fa fa-bug"></i>Behnam Ghafouri (API Demo)</a></div>
+      <div class="collapse navbar-collapse navbar-right">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="#">Employees</a></li>
+          <li><a href="#">Positions</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <!--/.container--> 
+  </nav>
+  <!--/nav--> 
+  
+</header>
+<!--/header-->
+
+<div class="color-border"> </div>
+<div>Hellow world</div>
+<div class="color-border"> </div>
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">Copyright &copy; 2019 Behnam Ghfaouri (WEB422). Design by <a href="http://www.templategarden.com" rel="nofollow">TemplateGarden</a></div>
+      <div class="col-sm-6">
+        <div class="follow-us"> <a class="fa fa-facebook social-icon" href="#"></a> <a class="fa fa-twitter social-icon" href="#"></a> <a class="fa fa-linkedin social-icon" href="#"></a> <a class="fa fa-google-plus social-icon" href="#"></a> </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!--/#footer--> 
