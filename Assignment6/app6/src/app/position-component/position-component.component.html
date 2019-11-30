@@ -19,10 +19,10 @@
                       </tr>
                   </thead>
                   <tbody>
-                      <tr *ngFor="let data of positions">
-                          <th>{{data.PositionName}}</th>
-                          <th>{{data.PositionDescription}}</th> 
-                          <th>${{data.PositionBaseSalary | number:'.2'}}</th>
+                      <tr *ngFor="let data of positions" (click)="routePosition(data._id)">
+                          <td>{{data.PositionName}}</td>
+                          <td>{{data.PositionDescription}}</td> 
+                          <td>${{data.PositionBaseSalary | number:'.2'}}</td>
                       </tr>
                   </tbody>
               </table>

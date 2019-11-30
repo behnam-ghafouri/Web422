@@ -1,0 +1,119 @@
+<div class="center">
+    <h2>Employee: {{employee.FirstName}} {{employee.LastName}}</h2>
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non odio sed eros tristique bibendum.</p>
+  </div>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-12">
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group" [ngClass]="{ 'has-error': FirstName.errors }" >
+            <label class="control-label" for="FirstName">First Name:</label>
+            <input class="form-control" id="FirstName" type="text"  name="FirstName" [(ngModel)]="employee.FirstName" required #FirstName="ngModel" />
+            <span class="help-block" *ngIf="FirstName.errors">FirstName is required</span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group" [ngClass]="{'has-error': LastName.errors}">
+            <label class="control-label" for="LastName">Last Name:</label>
+            <input class="form-control" id="LastName" type="text" name="LastName" [(ngModel)]="employee.LastName" required #LastName="ngModel" />
+            <span class="help-block" *ngIf="LastName.errors">LastName is required</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group" >
+            <label class="control-label" for="Position">Position:</label>
+            <select class="form-control" id="Position"  name="Position">
+              <option *ngFor="let position of positions" [value]="position._id">{{position.PositionName}}</option>
+
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label" for="SalaryBonus">Salary Bonus</label>
+            <div class="input-group" [ngClass]="{'has-error': SalaryBonus.errors}">
+              <span class="input-group-addon">$</span>
+              <input class="form-control" id="SalaryBonus"  name="SalaryBonus" [(ngModel)]="employee.SalaryBonus" required type="number" #SalaryBonus="ngModel"   />
+              <span class="help-block" *ngIf="SalaryBonus.errors">Salary Bounes is required</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group" [ngClass]="{'has-error': AddressStreet.errors}">
+            <label class="control-label" for="AddressStreet">Address (Street):</label>
+            <input class="form-control" id="AddressStreet" type="text" name="AddressStreet" [(ngModel)]="employee.AddressStreet" required #AddressStreet="ngModel"/>
+            <span class="help-block" *ngIf="AddressStreet.errors">AddressStreet is required</span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group" [ngClass]="{'has-error': AddressCity.errors}">
+            <label class="control-label" for="AddressCity">Address (City):</label>
+            <input class="form-control" id="AddressCity" type="text" name="AddressCity" [(ngModel)]="employee.AddressCity" required #AddressCity="ngModel" />
+            <span class="help-block" *ngIf="AddressCity.errors">AddressCity is required</span>
+
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group" [ngClass]="{'has-error': AddressState.errors}">
+            <label class="control-label" for="AddressState">Address (State):</label>
+            <input class="form-control" id="AddressState" type="text" name="AddressState" [(ngModel)]="employee.AddressState" required #AddressState="ngModel" />
+            <span class="help-block" *ngIf="AddressState.errors">AddressState is required</span>
+
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group" [ngClass]="{'has-error': AddressZip.errors}">
+            <label class="control-label" for="AddressZip">Address (Zip Code):</label>
+            <input class="form-control" id="AddressZip" type="text" name="AddressZip" [(ngModel)]="employee.AddressZip" required #AddressZip="ngModel" />
+            <span class="help-block" *ngIf="AddressZip.errors">AddressZip is required</span>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group" [ngClass]="{ 'has-error': PhoneNum.errors }">
+            <label for="PhoneNum">Phone Number:</label>
+            <input class="form-control" id="PhoneNum" type="text" name="PhoneNum" [(ngModel)]="employee.PhoneNum" pattern="\+?[ ]*[1-9]?[ ]*\-?[ ]*\(?[ ]*[1-9][ ]*(\d[ ]*){2}\)?[ ]*\-?[ ]*(\d[ ]*){3}-[ ]*(\d[ ]*){4}" #PhoneNum="ngModel"/>
+            <span class="help-block" *ngIf="PhoneNum.errors">PhoneNumer is wrong formated</span>
+
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group" [ngClass]="{'has-error': Extension.errors}">
+            <label class="control-label" for="Extension" >Extension:</label>
+            <input class="form-control" id="Extension" type="number" name="Extension" [(ngModel)]="employee.Extension" required #Extension="ngModel" />
+            <span class="help-block" *ngIf="Extension.errors">Extension is required</span>
+
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label" for="HireDate">Hire Date:</label>
+            <input class="form-control" id="HireDate" name="HireDate" type="text" value="HireDate" readonly [ngModel]="employee.HireDate | date:'longDate'" />
+          </div>
+        </div>
+      </div>
+      <hr />
+      <a routerLink="/employees" class="btn btn-warning pull-left">Return to Employee List</a>
+      <input type="submit" class="btn btn-primary pull-right" value="Update Employee" [disabled]="!f.valid" />
+      <br />
+      <br />
+    </form>
+  </div>
+  </div>
+  <br />
+  <div class="alert alert-success" *ngIf="successMessage">
+    <strong>Success!</strong> {{employee.FirstName}} {{employee.LastName}}'s information was successfully saved.
+  </div>
+  <div class="alert alert-danger" *ngIf="failMessage">
+    <strong>Error!</strong> {{employee.FirstName}} {{employee.LastName}}'s information could not be saved.
+  </div>
+  </div>
+  <br /><br />

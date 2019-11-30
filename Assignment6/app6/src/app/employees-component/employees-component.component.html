@@ -9,6 +9,7 @@
 <div class="container" *ngIf='!loadingError'>
   <div class="row">
       <div class="col-md-12">
+          <input class="form-control" id="EmployeeSearch" name="EmployeeSearch" type="text" placeholder="Search Employees by Full Name or Position" (keyup)="onEmployeeSearchKeyUP($event)" /><br />
           <div class="table-responsive">
               <table class="table table-condensed table-hover">
                 <thead>
@@ -20,11 +21,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let emp of employees">
+                  <tr *ngFor="let emp of filteredEmployees" (click)="routeEmployee(emp._id)">
                       <td>{{emp.FirstName}}&nbsp;{{emp.LastName}}</td>
-                      <th>{{emp.AddressStreet}}.&nbsp;{{emp.AddressState}},&nbsp;{{emp.AddressCity}}.&nbsp;{{emp.AddressZip}}</th> 
-                      <th>{{emp.PhoneNum}}&nbsp;ext:&nbsp;{{emp.Extension}}</th>
-                      <th>{{emp.HireDate | date:'longDate'}}</th>
+                      <td>{{emp.AddressStreet}}.&nbsp;{{emp.AddressState}},&nbsp;{{emp.AddressCity}}.&nbsp;{{emp.AddressZip}}</td> 
+                      <td>{{emp.PhoneNum}}&nbsp;ext:&nbsp;{{emp.Extension}}</td>
+                      <td>{{emp.HireDate | date:'longDate'}}</td>
                   </tr>
                 </tbody>
               </table>
